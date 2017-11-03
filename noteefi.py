@@ -240,7 +240,7 @@ def update_db(last):
 
 if __name__ == '__main__':
 
-    ws = create_connection("ws://127.0.0.1:8090")
+    ws = create_connection("wss://steemd.steemit.com")
     last_update_id = 0
     client = MongoClient()
     db = client.notimeet
@@ -339,7 +339,7 @@ if __name__ == '__main__':
             tpslist.append(ntx)
             tpslist = tpslist[-1200:]
             tps = sum(tpslist)/(len(tpslist)*3)
-            print("Head block: " + str(block) + " / TPS: " + format(tps, ".2f") + "\r", end="")
+            print("Head block: " + str(block) + " / TPS: " + format(tps, ".2f") + "\r")
         else:
             try:
                 last_update_id = update_db(last_update_id)
